@@ -3,32 +3,35 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Entradas semanales del diario: lo aprendido, lo que costó y lo siguiente que probar.">
         <title>Diario RE - Diario</title>
         <link rel="icon" href="images/logo.svg" type="image/svg+xml">
         <link rel="stylesheet" href="styles.css">
     </head>
 
     <body>
-        <div id="cabecera">
-            <img id="logo" src="images/logo.svg" alt="Logo del Diario RE: una lupa sobre código binario">
+        <!-- Cabecera común a todas las páginas -->
+        <header id="cabecera">
+            <img id="logo" src="images/logo.svg" width="70" height="70" alt="Logo del Diario RE: una lupa sobre código binario">
             <h1>Diario RE</h1>
-            <p class="subtitulo">Mi viaje por la ingeniería inversa</p>
-            <p id="menu">
+            <p class="subtitulo">Mi viaje por la <em>ingeniería inversa</em></p>
+            <nav id="menu">
                 <a href="index.html">Inicio</a>
                 <a href="diario.html" class="actual">Diario</a>
                 <a href="herramientas.html">Herramientas</a>
                 <a href="tecnicas.html">Técnicas</a>
                 <a href="contacto.html">Taller</a>
-            </p>
-        </div>
+            </nav>
+        </header>
 
-        <div id="contenido">
+        <main id="contenido">
             <p class="entradilla">
                 Estas son las entradas de mi diario, de la más reciente a la más antigua. Cada una resume lo que
                 aprendí esa semana, lo que me costó y lo que quiero probar después.
             </p>
 
-            <div id="indice">
+            <!-- Índice interno de las entradas -->
+            <nav id="indice">
                 <p class="titulo-indice">Índice</p>
                 <ol>
                     <li><a href="#entrada-5">Semana 12: Mi primer crackme resuelto</a></li>
@@ -37,26 +40,39 @@
                     <li><a href="#entrada-2">Semana 4: Aprendiendo ensamblador</a></li>
                     <li><a href="#entrada-1">Semana 1: El reto que lo empezó todo</a></li>
                 </ol>
-            </div>
+            </nav>
 
-            <div class="entrada">
-                <h2 id="entrada-5">Semana 12: Mi primer crackme resuelto</h2>
-                <p class="fecha">15 de septiembre de 2026 &middot; Etiquetas: crackme, x64dbg</p>
+            <!-- Cada entrada del diario es un <article> independiente -->
+            <article class="entrada" id="entrada-5">
+                <header>
+                    <h2>Semana 12: Mi primer crackme resuelto</h2>
+                    <p class="fecha">
+                        15 de septiembre de 2026 &middot;
+                        <span class="etiqueta">crackme</span>
+                        <span class="etiqueta">x64dbg</span>
+                    </p>
+                </header>
                 <p>
                     ¡Por fin! Después de varios intentos he conseguido resolver mi primer crackme sin mirar la
                     solución. El programa pedía una contraseña y la comparaba con <strong>strcmp</strong>. Poniendo un
                     breakpoint en esa función pude leer la contraseña correcta en la memoria.
                 </p>
                 <div class="figura">
-                    <img src="images/crackme.svg" alt="Terminal: la contraseña hola es incorrecta y la contraseña s3cr3t es correcta">
+                    <img src="images/crackme.svg" width="700" height="220" alt="Terminal: la contraseña hola es incorrecta y la contraseña s3cr3t es correcta">
                     <p class="pie-foto">Dos ejecuciones del crackme: antes y después de encontrar la contraseña.</p>
                 </div>
                 <p>El paso a paso completo está en la sección de <a href="tecnicas.html#crackme">técnicas</a>.</p>
-            </div>
+            </article>
 
-            <div class="entrada">
-                <h2 id="entrada-4">Semana 10: Peleándome con la pila</h2>
-                <p class="fecha">1 de septiembre de 2026 &middot; Etiquetas: ensamblador, pila</p>
+            <article class="entrada" id="entrada-4">
+                <header>
+                    <h2>Semana 10: Peleándome con la pila</h2>
+                    <p class="fecha">
+                        1 de septiembre de 2026 &middot;
+                        <span class="etiqueta">ensamblador</span>
+                        <span class="etiqueta">pila</span>
+                    </p>
+                </header>
                 <p>
                     Esta semana me he centrado en entender cómo se usa la <strong>pila</strong> cuando se llama a una
                     función. Al principio no entendía por qué siempre aparecían las instrucciones
@@ -66,11 +82,17 @@
                     Dibujar la pila en papel, instrucción a instrucción, me ayudó muchísimo. Lo he pasado a limpio en
                     la página de <a href="tecnicas.html#pila">técnicas</a>.
                 </p>
-            </div>
+            </article>
 
-            <div class="entrada">
-                <h2 id="entrada-3">Semana 8: Primeros pasos con Ghidra</h2>
-                <p class="fecha">18 de agosto de 2026 &middot; Etiquetas: Ghidra, análisis estático</p>
+            <article class="entrada" id="entrada-3">
+                <header>
+                    <h2>Semana 8: Primeros pasos con Ghidra</h2>
+                    <p class="fecha">
+                        18 de agosto de 2026 &middot;
+                        <span class="etiqueta">Ghidra</span>
+                        <span class="etiqueta">análisis estático</span>
+                    </p>
+                </header>
                 <p>
                     He instalado <strong>Ghidra</strong> y he abierto mis propios programas en C para comparar el código
                     original con lo que muestra el descompilador. Es sorprendente lo parecido que es, aunque los
@@ -79,13 +101,19 @@
                 <ul>
                     <li>Lo mejor: el descompilador ahorra muchísimo tiempo.</li>
                     <li>Lo peor: la interfaz abruma al principio.</li>
-                    <li>Truco: renombrar variables con la tecla L.</li>
+                    <li>Truco: renombrar variables con la tecla <em>L</em>.</li>
                 </ul>
-            </div>
+            </article>
 
-            <div class="entrada">
-                <h2 id="entrada-2">Semana 4: Aprendiendo ensamblador</h2>
-                <p class="fecha">21 de julio de 2026 &middot; Etiquetas: ensamblador, x86-64</p>
+            <article class="entrada" id="entrada-2">
+                <header>
+                    <h2>Semana 4: Aprendiendo ensamblador</h2>
+                    <p class="fecha">
+                        21 de julio de 2026 &middot;
+                        <span class="etiqueta">ensamblador</span>
+                        <span class="etiqueta">x86-64</span>
+                    </p>
+                </header>
                 <p>
                     He empezado a estudiar el <strong>ensamblador x86-64</strong>. Mi método ha sido escribir funciones
                     muy pequeñas en C, compilarlas y leer el ensamblador que genera el compilador.
@@ -94,27 +122,47 @@
                     Las instrucciones que más aparecen son <strong>mov</strong>, <strong>call</strong>,
                     <strong>cmp</strong> y los saltos condicionales como <strong>je</strong> y <strong>jne</strong>.
                 </p>
-            </div>
+            </article>
 
-            <div class="entrada">
-                <h2 id="entrada-1">Semana 1: El reto que lo empezó todo</h2>
-                <p class="fecha">30 de junio de 2026 &middot; Etiquetas: CTF, motivación</p>
+            <article class="entrada" id="entrada-1">
+                <header>
+                    <h2>Semana 1: El reto que lo empezó todo</h2>
+                    <p class="fecha">
+                        30 de junio de 2026 &middot;
+                        <span class="etiqueta">CTF</span>
+                        <span class="etiqueta">motivación</span>
+                    </p>
+                </header>
                 <p>
                     Participé en mi primera competición CTF con unos compañeros de clase. Había una categoría llamada
-                    <strong>reversing</strong> en la que no conseguimos resolver ni un solo reto. Ese mismo día decidí
+                    <em>reversing</em> en la que no conseguimos resolver ni un solo reto. Ese mismo día decidí
                     que quería aprender y abrí este diario.
                 </p>
                 <p class="nota">Objetivo para el próximo CTF: resolver al menos un reto de reversing.</p>
-            </div>
-        </div>
+            </article>
 
-        <div id="pie">
+            <aside class="extra">
+                <h2>Sobre este diario</h2>
+                <p>
+                    Escribo una entrada cada vez que aprendo algo que me habría gustado saber antes. Si estás
+                    empezando, quizá te sirva leerlas en orden, de la más antigua a la más reciente.
+                </p>
+            </aside>
+
+            <!-- Enlace que solo se muestra en pantallas pequeñas (display: none en escritorio) -->
+            <p class="solo-movil"><a href="#cabecera">&uarr; Volver al menú</a></p>
+        </main>
+
+        <hr>
+
+        <!-- Pie común a todas las páginas -->
+        <footer id="pie">
             <p>Asier Ying &copy; 2026 &middot; Made by Claude AI</p>
             <p>
                 <a href="https://jigsaw.w3.org/css-validator/check/referer">
-                    <img id="logoW3C" src="images/vcss-blue.png" alt="¡CSS Válido!">
+                    <img id="logoW3C" src="images/vcss-blue.png" width="88" height="31" alt="¡CSS Válido!">
                 </a>
             </p>
-        </div>
+        </footer>
     </body>
 </html>

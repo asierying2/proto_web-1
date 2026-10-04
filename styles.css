@@ -11,7 +11,7 @@ body {
     padding: 0;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
     font-family: Georgia, "Times New Roman", serif;
     font-weight: normal;
     color: #14213d;
@@ -46,8 +46,35 @@ h4 {
     margin-top: 2em;
 }
 
-p, li, td, label, legend {
+h5 {
+    font-size: 1.05em;
+    font-style: italic;
+    margin-top: 1.8em;
+    margin-bottom: 0.3em;
+}
+
+h6 {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #8a8a8a;
+    margin-top: 1.8em;
+    margin-bottom: 0.3em;
+}
+
+p, li, td, label, legend, span {
     font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+em {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #e0d8c6;
+    margin: 0;
 }
 
 p {
@@ -58,6 +85,21 @@ a {
     color: #14213d;
     text-decoration: none;
     border-bottom: 1px solid #b08d57;
+}
+
+/* Pseudoclases: estado del enlace al pasar el ratón y al visitarlo */
+a:hover {
+    color: #b08d57;
+}
+
+a:visited {
+    color: #4a3b66;
+}
+
+/* Imágenes adaptables: nunca más anchas que su contenedor */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 strong {
@@ -119,6 +161,24 @@ input, select, textarea {
     padding: 7px;
 }
 
+/* Pseudoclases de formulario */
+input:required {
+    border-left: 3px solid #b08d57;
+}
+
+input:disabled {
+    background-color: #f0ece2;
+    color: #8a8a8a;
+}
+
+input[type="checkbox"]:checked {
+    box-shadow: 0 0 0 3px #b08d57;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #14213d;
+}
+
 /* ===== Identificadores (estructura común) ===== */
 
 #cabecera {
@@ -132,9 +192,11 @@ input, select, textarea {
     color: white;
 }
 
+/* El logo flota a la izquierda y el menú limpia el flotado con clear */
 #logo {
     width: 70px;
     height: 70px;
+    float: left;
 }
 
 #menu {
@@ -142,6 +204,7 @@ input, select, textarea {
     margin-top: 25px;
     margin-bottom: 0;
     padding: 12px 0;
+    clear: both;
 }
 
 #menu a {
@@ -151,6 +214,11 @@ input, select, textarea {
     letter-spacing: 2px;
     font-size: 0.8em;
     padding: 5px 15px;
+    display: inline-block;
+}
+
+#menu a:hover {
+    color: white;
 }
 
 #contenido {
@@ -177,6 +245,7 @@ input, select, textarea {
     padding: 20px;
     border-top: 4px solid #b08d57;
     margin-bottom: 30px;
+    clear: both;
 }
 
 #pie a {
@@ -253,6 +322,32 @@ input, select, textarea {
     padding-bottom: 20px;
 }
 
+.extra {
+    background-color: #fbf9f4;
+    border-top: 3px solid #b08d57;
+    margin-top: 40px;
+    padding: 5px 25px 20px 25px;
+}
+
+.extra h2 {
+    font-size: 1.2em;
+    border-bottom: 0;
+    margin-top: 1em;
+    margin-bottom: 0.3em;
+}
+
+.etiqueta {
+    background-color: #f0ece2;
+    color: #14213d;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+}
+
+.dato {
+    font-weight: 700;
+    color: #b08d57;
+}
+
 .fecha {
     font-size: 0.8em;
     text-transform: uppercase;
@@ -267,4 +362,75 @@ input, select, textarea {
     border: 0;
     letter-spacing: 3px;
     padding: 12px 35px;
+    display: inline-block;
+}
+
+.boton:hover {
+    background-color: #b08d57;
+}
+
+.etiqueta {
+    display: inline-block;
+}
+
+/* Este enlace está oculto en escritorio y aparece en pantallas pequeñas */
+.solo-movil {
+    display: none;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* ===== Media queries (diseño adaptable) ===== */
+
+/* Tablet: la página deja de tener un ancho fijo */
+@media only screen and (max-width: 900px) {
+    body {
+        width: auto;
+    }
+
+    #contenido {
+        padding: 20px 30px 40px 30px;
+    }
+
+    #indice, .extra {
+        width: auto;
+    }
+}
+
+/* Móvil: una sola columna, sin flotados y con tipografía más pequeña */
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.9em;
+        letter-spacing: 2px;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    #cabecera {
+        padding: 20px 10px 0 10px;
+    }
+
+    #logo {
+        float: none;
+    }
+
+    #menu a {
+        display: block;
+        padding: 8px 0;
+    }
+
+    #contenido {
+        padding: 15px 20px 30px 20px;
+    }
+
+    table, th, td {
+        font-size: 0.85em;
+        padding: 6px;
+    }
+
+    .solo-movil {
+        display: block;
+    }
 }
