@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="700" height="220" viewBox="0 0 700 220">
+  <rect width="700" height="220" fill="#0f1830"/>
+  <rect width="700" height="28" fill="#1b2a4a"/>
+  <text x="350" y="19" font-family="Arial, sans-serif" font-size="12" fill="#a9b0c0" text-anchor="middle">Terminal</text>
+  <g font-family="monospace" font-size="14" fill="#e8e4da">
+    <text x="20" y="60"><tspan fill="#b08d57">$</tspan> ./crackme</text>
+    <text x="20" y="84">Introduce la contraseña: hola</text>
+    <text x="20" y="108" fill="#c0625a">Contraseña incorrecta</text>
+    <text x="20" y="144"><tspan fill="#b08d57">$</tspan> ./crackme</text>
+    <text x="20" y="168">Introduce la contraseña: s3cr3t</text>
+    <text x="20" y="192" fill="#6aa876">¡Correcto! Has resuelto el reto.</text>
+  </g>
+</svg>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diario RE - Taller</title>
+        <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <div id="cabecera">
+            <img id="logo" src="images/logo.svg" alt="Logo del Diario RE: una lupa sobre código binario">
+            <h1>Diario RE</h1>
+            <p class="subtitulo">Mi viaje por la ingeniería inversa</p>
+            <p id="menu">
+                <a href="index.html">Inicio</a>
+                <a href="diario.html">Diario</a>
+                <a href="herramientas.html">Herramientas</a>
+                <a href="tecnicas.html">Técnicas</a>
+                <a href="contacto.html" class="actual">Taller</a>
+            </p>
+        </div>
+
+        <div id="contenido">
+            <p class="entradilla">
+                Aprender en grupo es mucho más divertido. Por eso organizo un taller mensual abierto a cualquiera que
+                quiera iniciarse en la ingeniería inversa.
+            </p>
+
+            <div id="indice">
+                <p class="titulo-indice">Índice</p>
+                <ol>
+                    <li><a href="#info">Sobre el taller</a></li>
+                    <li><a href="#programa">Programa</a></li>
+                    <li><a href="#requisitos">Requisitos</a></li>
+                    <li><a href="#inscripcion">Formulario de inscripción</a></li>
+                </ol>
+            </div>
+
+            <h2 id="info">Sobre el taller</h2>
+            <div class="figura">
+                <img src="images/taller.svg" alt="Ilustración del taller: una pantalla con código ensamblador y tres portátiles">
+            </div>
+            <p>
+                Cada mes organizo un <strong>taller gratuito de ingeniería inversa</strong> para principiantes.
+                Resolvemos crackmes en grupo y aprendemos a usar Ghidra y x64dbg. Las sesiones duran dos horas y
+                las plazas son limitadas a 20 personas.
+            </p>
+
+            <h2 id="programa">Programa</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sesión</th><th>Tema</th><th>Nivel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Octubre</td><td>Introducción al ensamblador</td><td>Principiante</td></tr>
+                    <tr><td>Noviembre</td><td>Análisis estático con Ghidra</td><td>Principiante</td></tr>
+                    <tr><td>Diciembre</td><td>Depuración con x64dbg</td><td>Intermedio</td></tr>
+                    <tr><td>Enero</td><td>Retos de reversing en CTF</td><td>Intermedio</td></tr>
+                </tbody>
+            </table>
+
+            <h2 id="requisitos">Requisitos</h2>
+            <ul>
+                <li>Traer un portátil con al menos 8 GB de RAM.</li>
+                <li>Tener instalado VirtualBox (te ayudamos si no sabes cómo).</li>
+                <li>Conocimientos básicos de programación (en cualquier lenguaje).</li>
+                <li>Muchas ganas de aprender.</li>
+            </ul>
+
+            <h2 id="inscripcion">Formulario de inscripción</h2>
+            <p>Rellena el siguiente formulario para reservar tu plaza:</p>
+
+            <form action="index.html" method="get">
+                <fieldset>
+                    <legend>Datos personales</legend>
+                    <label for="id-nombre">Nombre: </label>
+                    <input type="text" name="nombre" id="id-nombre">
+                    <br><br>
+                    <label for="id-email">Email: </label>
+                    <input type="email" name="email" id="id-email">
+                    <br><br>
+                    <label for="id-password">Contraseña: </label>
+                    <input type="password" name="password" id="id-password">
+                    <p>¿Has hecho ingeniería inversa alguna vez?</p>
+                    <input type="radio" id="exp-S" name="experiencia" value="1">
+                    <label for="exp-S">Sí</label>
+                    <input type="radio" id="exp-N" name="experiencia" value="0" checked>
+                    <label for="exp-N">No, soy principiante</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Datos del taller</legend>
+                    <label for="id-tema">Sesión: </label>
+                    <select id="id-tema" name="tema">
+                        <option selected>Octubre: Introducción al ensamblador</option>
+                        <option>Noviembre: Análisis estático con Ghidra</option>
+                        <option>Diciembre: Depuración con x64dbg</option>
+                        <option>Enero: Retos de reversing en CTF</option>
+                    </select>
+                    <p>Selecciona la fecha y la hora que prefieras:</p>
+                    <input type="date" name="fecha" id="id-fecha">
+                    <input type="time" name="hora" id="id-hora">
+                    <br><br>
+                    <textarea name="comentarios" rows="6" cols="40" placeholder="Comentarios"></textarea>
+                </fieldset>
+                <br>
+                <input type="checkbox" name="condiciones" id="id-condiciones" value="1">
+                <label for="id-condiciones">Solo aplicaré ingeniería inversa a software que tenga permiso para analizar</label>
+                <br><br>
+                <input type="submit" name="enviar" value="ENVIAR" class="boton">
+            </form>
+        </div>
+
+        <div id="pie">
+            <p>Diario RE &copy; 2026 &middot; Prototipo web para la asignatura IW</p>
+            <p>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                    <img id="logoW3C" src="images/vcss-blue.png" alt="¡CSS Válido!">
+                </a>
+            </p>
+        </div>
+    </body>
+</html>

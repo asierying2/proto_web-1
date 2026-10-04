@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="350" viewBox="0 0 700 350">
+  <rect width="700" height="350" fill="#fbf9f4"/>
+  <defs>
+    <marker id="p" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b08d57"/>
+    </marker>
+  </defs>
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="11" letter-spacing="2" fill="#a0a0a0" text-anchor="middle">DIRECCIONES ALTAS</text>
+  <g font-family="Arial, sans-serif" font-size="14" text-anchor="middle">
+    <rect x="200" y="45" width="300" height="50" fill="white" stroke="#14213d" stroke-width="2"/>
+    <text x="350" y="75" fill="#14213d">Argumentos de la función</text>
+    <rect x="200" y="95" width="300" height="50" fill="#b08d57"/>
+    <text x="350" y="125" fill="white">Dirección de retorno</text>
+    <rect x="200" y="145" width="300" height="50" fill="white" stroke="#14213d" stroke-width="2"/>
+    <text x="350" y="175" fill="#14213d">RBP guardado</text>
+    <rect x="200" y="195" width="300" height="50" fill="#14213d"/>
+    <text x="350" y="225" fill="white">Variable local: clave[16]</text>
+    <rect x="200" y="245" width="300" height="50" fill="#14213d" stroke="#2c3a5c"/>
+    <text x="350" y="275" fill="white">Variable local: intentos</text>
+  </g>
+  <text x="350" y="325" font-family="Arial, sans-serif" font-size="11" letter-spacing="2" fill="#a0a0a0" text-anchor="middle">DIRECCIONES BAJAS</text>
+  <g font-family="monospace" font-size="14" fill="#b08d57">
+    <text x="565" y="175">RBP</text>
+    <line x1="558" y1="170" x2="508" y2="170" stroke="#b08d57" stroke-width="2" marker-end="url(#p)"/>
+    <text x="565" y="300">RSP</text>
+    <line x1="558" y1="295" x2="508" y2="295" stroke="#b08d57" stroke-width="2" marker-end="url(#p)"/>
+  </g>
+  <text x="100" y="160" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#14213d" text-anchor="middle">La pila crece</text>
+  <text x="100" y="178" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#14213d" text-anchor="middle">hacia abajo</text>
+  <line x1="100" y1="190" x2="100" y2="260" stroke="#b08d57" stroke-width="2" marker-end="url(#p)"/>
+</svg>

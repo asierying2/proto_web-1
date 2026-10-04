@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="700" height="300" viewBox="0 0 700 300">
+  <rect width="700" height="300" fill="#14213d"/>
+  <text x="25" y="35" font-family="Arial, sans-serif" font-size="12" letter-spacing="2" fill="#b08d57">CÓDIGO C</text>
+  <text x="370" y="35" font-family="Arial, sans-serif" font-size="12" letter-spacing="2" fill="#b08d57">ENSAMBLADOR x86-64</text>
+  <line x1="350" y1="20" x2="350" y2="280" stroke="#2c3a5c" stroke-width="2"/>
+  <g font-family="monospace" font-size="13" fill="#e8e4da">
+    <text x="25" y="75">int comprobar(char *clave) {</text>
+    <text x="25" y="97">  if (strcmp(clave,</text>
+    <text x="25" y="119">             "s3cr3t") == 0)</text>
+    <text x="25" y="141">    return 1;</text>
+    <text x="25" y="163">  return 0;</text>
+    <text x="25" y="185">}</text>
+  </g>
+  <g font-family="monospace" font-size="13">
+    <text x="370" y="75" fill="#b08d57">comprobar:</text>
+    <text x="390" y="97" fill="#e8e4da">push  rbp</text>
+    <text x="390" y="119" fill="#e8e4da">mov   rbp, rsp</text>
+    <text x="390" y="141" fill="#e8e4da">lea   rsi, [s3cr3t]</text>
+    <rect x="382" y="148" width="290" height="20" fill="#b08d57" opacity="0.35"/>
+    <text x="390" y="163" fill="white">call  strcmp</text>
+    <text x="390" y="185" fill="#e8e4da">test  eax, eax</text>
+    <text x="390" y="207" fill="#e8e4da">jne   .fallo</text>
+    <text x="390" y="229" fill="#e8e4da">mov   eax, 1</text>
+    <text x="390" y="251" fill="#e8e4da">pop   rbp</text>
+    <text x="390" y="273" fill="#e8e4da">ret</text>
+  </g>
+</svg>

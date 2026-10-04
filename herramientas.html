@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diario RE - Herramientas</title>
+        <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <div id="cabecera">
+            <img id="logo" src="images/logo.svg" alt="Logo del Diario RE: una lupa sobre código binario">
+            <h1>Diario RE</h1>
+            <p class="subtitulo">Mi viaje por la ingeniería inversa</p>
+            <p id="menu">
+                <a href="index.html">Inicio</a>
+                <a href="diario.html">Diario</a>
+                <a href="herramientas.html" class="actual">Herramientas</a>
+                <a href="tecnicas.html">Técnicas</a>
+                <a href="contacto.html">Taller</a>
+            </p>
+        </div>
+
+        <div id="contenido">
+            <p class="entradilla">
+                Estas son las herramientas que forman mi "caja de herramientas" de reverser. Casi todas son
+                gratuitas, así que cualquiera puede empezar sin gastar dinero.
+            </p>
+
+            <div id="indice">
+                <p class="titulo-indice">Índice</p>
+                <ol>
+                    <li><a href="#entorno">Mi entorno de trabajo</a></li>
+                    <li><a href="#desensambladores">Desensambladores y descompiladores</a></li>
+                    <li><a href="#depuradores">Depuradores</a></li>
+                    <li><a href="#hex">Editores hexadecimales</a></li>
+                    <li><a href="#otras">Otras herramientas útiles</a></li>
+                </ol>
+            </div>
+
+            <h2 id="entorno">Mi entorno de trabajo</h2>
+            <p>
+                Antes de analizar cualquier programa es importante preparar un entorno <strong>aislado</strong>, para
+                que nada de lo que ejecutemos pueda dañar nuestro ordenador. Mi configuración es la siguiente:
+            </p>
+            <ol>
+                <li>Una máquina virtual con <strong>VirtualBox</strong>.</li>
+                <li>Un sistema Windows 10 para los crackmes de Windows.</li>
+                <li>Una distribución Linux (Ubuntu) para los retos de CTF.</li>
+                <li>La red de la máquina virtual desactivada al analizar archivos sospechosos.</li>
+                <li>Una "instantánea" (snapshot) limpia para volver atrás si algo sale mal.</li>
+            </ol>
+
+            <h2 id="desensambladores">Desensambladores y descompiladores</h2>
+            <p>
+                Un <strong>desensamblador</strong> traduce el código máquina a ensamblador, y un
+                <strong>descompilador</strong> intenta ir un paso más allá y reconstruir un código parecido a C.
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th><th>Licencia</th><th>Sistemas</th><th>Web</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ghidra</td><td>Gratuita</td><td>Windows, Linux, macOS</td><td><a href="https://ghidra-sre.org/">Visitar</a></td>
+                    </tr>
+                    <tr>
+                        <td>IDA Free</td><td>Gratuita (limitada)</td><td>Windows, Linux, macOS</td><td><a href="https://hex-rays.com/ida-free/">Visitar</a></td>
+                    </tr>
+                    <tr>
+                        <td>radare2</td><td>Gratuita</td><td>Todos</td><td><a href="https://rada.re/n/">Visitar</a></td>
+                    </tr>
+                    <tr>
+                        <td>Binary Ninja</td><td>De pago</td><td>Windows, Linux, macOS</td><td><a href="https://binary.ninja/">Visitar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                Mi favorita es <strong>Ghidra</strong>: fue creada por la NSA y liberada como software libre en 2019.
+                Su descompilador es muy bueno y no cuesta nada.
+            </p>
+
+            <h2 id="depuradores">Depuradores</h2>
+            <p>
+                Un depurador permite ejecutar un programa paso a paso, detenerlo en cualquier punto e inspeccionar
+                su memoria y sus registros.
+            </p>
+            <div class="figura">
+                <img src="images/depurador.svg" alt="Ventana de x64dbg con el desensamblado, los registros y la memoria del programa">
+                <p class="pie-foto">x64dbg detenido en una llamada a strcmp. En la memoria ya se ve la contraseña.</p>
+            </div>
+            <ul>
+                <li>Windows
+                    <ul>
+                        <li><a href="https://x64dbg.com/">x64dbg</a>: el más cómodo para empezar.</li>
+                        <li>WinDbg: el depurador oficial de Microsoft.</li>
+                    </ul>
+                </li>
+                <li>Linux
+                    <ul>
+                        <li><a href="https://www.sourceware.org/gdb/">GDB</a>: el clásico, en línea de comandos.</li>
+                        <li>GEF y pwndbg: extensiones que hacen GDB mucho más visual.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2 id="hex">Editores hexadecimales</h2>
+            <p>
+                Un editor hexadecimal muestra el contenido de un archivo byte a byte. Es muy útil para identificar el
+                tipo de archivo y para encontrar textos ocultos.
+            </p>
+            <div class="figura">
+                <img src="images/hexadecimal.svg" alt="Vista hexadecimal de un binario ELF con la columna de offset, los bytes y el texto">
+                <p class="pie-foto">Los primeros bytes (7F 45 4C 46) indican que es un ejecutable ELF de Linux.</p>
+            </div>
+            <p>Los que yo uso son <strong>HxD</strong> en Windows y <strong>xxd</strong> en Linux.</p>
+
+            <h2 id="otras">Otras herramientas útiles</h2>
+            <ul>
+                <li><strong>strings</strong>: muestra el texto legible que hay dentro de un binario.</li>
+                <li><strong>file</strong>: identifica el tipo de un archivo.</li>
+                <li><strong>Wireshark</strong>: captura y analiza el tráfico de red.</li>
+                <li><strong>Detect It Easy</strong>: identifica compiladores y empaquetadores.</li>
+                <li><strong>Process Monitor</strong>: registra los archivos y claves de registro que usa un programa.</li>
+            </ul>
+        </div>
+
+        <div id="pie">
+            <p>Diario RE &copy; 2026 &middot; Prototipo web para la asignatura IW</p>
+            <p>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                    <img id="logoW3C" src="images/vcss-blue.png" alt="¡CSS Válido!">
+                </a>
+            </p>
+        </div>
+    </body>
+</html>

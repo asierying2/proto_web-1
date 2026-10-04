@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diario RE - Técnicas</title>
+        <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <div id="cabecera">
+            <img id="logo" src="images/logo.svg" alt="Logo del Diario RE: una lupa sobre código binario">
+            <h1>Diario RE</h1>
+            <p class="subtitulo">Mi viaje por la ingeniería inversa</p>
+            <p id="menu">
+                <a href="index.html">Inicio</a>
+                <a href="diario.html">Diario</a>
+                <a href="herramientas.html">Herramientas</a>
+                <a href="tecnicas.html" class="actual">Técnicas</a>
+                <a href="contacto.html">Taller</a>
+            </p>
+        </div>
+
+        <div id="contenido">
+            <p class="entradilla">
+                Aquí recojo los conceptos y técnicas que he ido aprendiendo, explicados de la forma más sencilla que
+                he sabido.
+            </p>
+
+            <div id="indice">
+                <p class="titulo-indice">Índice</p>
+                <ol>
+                    <li><a href="#ensamblador">Conceptos básicos de ensamblador</a></li>
+                    <li><a href="#pila">La pila</a></li>
+                    <li><a href="#estatico">Análisis estático</a></li>
+                    <li><a href="#dinamico">Análisis dinámico</a></li>
+                    <li><a href="#crackme">Resolviendo mi primer crackme</a></li>
+                </ol>
+            </div>
+
+            <h2 id="ensamblador">Conceptos básicos de ensamblador</h2>
+            <p>
+                El <strong>ensamblador</strong> es la representación legible del código máquina. Cada línea es una
+                instrucción muy simple que ejecuta el procesador. Comparar una función en C con su ensamblador es la
+                mejor forma de aprender:
+            </p>
+            <div class="figura">
+                <img src="images/ensamblador.svg" alt="Comparación de una función en C que comprueba una contraseña con su código ensamblador x86-64">
+                <p class="pie-foto">La misma función en C y en ensamblador. La llamada a strcmp está resaltada.</p>
+            </div>
+            <p>Estos son los registros e instrucciones que más me encuentro:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Elemento</th><th>Tipo</th><th>Para qué sirve</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>RAX</td><td>Registro</td><td>Guarda el valor de retorno de las funciones.</td></tr>
+                    <tr><td>RSP</td><td>Registro</td><td>Apunta a la cima de la pila.</td></tr>
+                    <tr><td>RIP</td><td>Registro</td><td>Apunta a la siguiente instrucción a ejecutar.</td></tr>
+                    <tr><td>mov</td><td>Instrucción</td><td>Copia un valor de un sitio a otro.</td></tr>
+                    <tr><td>cmp / test</td><td>Instrucción</td><td>Compara dos valores.</td></tr>
+                    <tr><td>je / jne</td><td>Instrucción</td><td>Salta si la comparación es igual / distinta.</td></tr>
+                    <tr><td>call / ret</td><td>Instrucción</td><td>Llama a una función / vuelve de ella.</td></tr>
+                </tbody>
+            </table>
+
+            <h2 id="pila">La pila</h2>
+            <p>
+                La <strong>pila</strong> (stack) es una zona de memoria donde cada función guarda sus variables
+                locales y la dirección a la que debe volver cuando termine. Entenderla es clave para seguir el flujo
+                de un programa y, más adelante, para entender vulnerabilidades como el desbordamiento de búfer.
+            </p>
+            <div class="figura">
+                <img src="images/pila.svg" alt="Diagrama de la pila: argumentos, dirección de retorno, RBP guardado y variables locales, con RBP y RSP señalados">
+                <p class="pie-foto">Estructura de la pila durante la llamada a una función.</p>
+            </div>
+
+            <h2 id="estatico">Análisis estático</h2>
+            <p>
+                En el <strong>análisis estático</strong> el programa se estudia <strong>sin ejecutarlo</strong>.
+                Es la forma más segura de empezar, sobre todo con archivos sospechosos.
+            </p>
+            <ul>
+                <li>Buscar cadenas de texto interesantes (mensajes de error, URLs, contraseñas).</li>
+                <li>Revisar las funciones que importa el binario.</li>
+                <li>Localizar la función <strong>main</strong> y seguir el flujo del programa.</li>
+                <li>Renombrar variables y funciones a medida que se van entendiendo.</li>
+            </ul>
+
+            <h2 id="dinamico">Análisis dinámico</h2>
+            <p>
+                En el <strong>análisis dinámico</strong> el programa se ejecuta, normalmente dentro de una máquina
+                virtual, y se observa con un depurador.
+            </p>
+            <ul>
+                <li>Poner puntos de ruptura (breakpoints) en funciones interesantes.</li>
+                <li>Avanzar por el código instrucción a instrucción.</li>
+                <li>Observar cómo cambian los registros y la memoria.</li>
+                <li>Modificar valores en tiempo real para cambiar el comportamiento del programa.</li>
+            </ul>
+            <p class="nota">
+                Consejo: combina ambos tipos de análisis. El estático te dice dónde mirar y el dinámico te confirma
+                lo que ocurre realmente.
+            </p>
+
+            <h2 id="crackme">Resolviendo mi primer crackme</h2>
+            <p>Estos son los pasos que seguí para superar una comprobación de contraseña sencilla:</p>
+
+            <h3>Paso 1: Encontrar el mensaje</h3>
+            <p>Al ejecutar <strong>strings</strong> apareció el texto "Contraseña incorrecta".</p>
+
+            <h3>Paso 2: Encontrar la comparación</h3>
+            <p>En Ghidra encontré la función que muestra ese texto y, justo antes, una llamada a <strong>strcmp</strong>.</p>
+
+            <h3>Paso 3: Leer la contraseña</h3>
+            <p>
+                Con un breakpoint en <strong>strcmp</strong> en x64dbg pude leer la contraseña correcta
+                directamente de la memoria.
+            </p>
+            <div class="figura">
+                <img src="images/crackme.svg" alt="Terminal: la contraseña hola es incorrecta y la contraseña s3cr3t es correcta">
+                <p class="pie-foto">El crackme resuelto con la contraseña encontrada.</p>
+            </div>
+
+            <h4>Lección aprendida</h4>
+            <p class="nota">¡Nunca guardes contraseñas en texto plano dentro de un programa!</p>
+        </div>
+
+        <div id="pie">
+            <p>Diario RE &copy; 2026 &middot; Prototipo web para la asignatura IW</p>
+            <p>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                    <img id="logoW3C" src="images/vcss-blue.png" alt="¡CSS Válido!">
+                </a>
+            </p>
+        </div>
+    </body>
+</html>

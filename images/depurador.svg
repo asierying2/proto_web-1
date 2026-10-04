@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="700" height="340" viewBox="0 0 700 340">
+  <rect width="700" height="340" fill="#1b2a4a"/>
+  <rect width="700" height="30" fill="#0f1830"/>
+  <circle cx="18" cy="15" r="5" fill="#c0625a"/>
+  <circle cx="36" cy="15" r="5" fill="#d9b35a"/>
+  <circle cx="54" cy="15" r="5" fill="#6aa876"/>
+  <text x="350" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a9b0c0" text-anchor="middle">x64dbg - crackme.exe</text>
+  <text x="20" y="55" font-family="Arial, sans-serif" font-size="11" letter-spacing="2" fill="#b08d57">DESENSAMBLADO</text>
+  <g font-family="monospace" font-size="12" fill="#e8e4da">
+    <text x="20" y="80">00401500  push rbp</text>
+    <text x="20" y="100">00401501  mov rbp, rsp</text>
+    <text x="20" y="120">00401504  lea rsi, [404000]</text>
+    <rect x="12" y="127" width="420" height="19" fill="#b08d57" opacity="0.4"/>
+    <text x="20" y="141" fill="white">0040150B  call strcmp</text>
+    <text x="20" y="161">00401510  test eax, eax</text>
+    <text x="20" y="181">00401512  jne 401520</text>
+    <text x="20" y="201">00401514  mov eax, 1</text>
+  </g>
+  <circle cx="7" cy="137" r="4" fill="#c0625a"/>
+  <line x1="450" y1="40" x2="450" y2="220" stroke="#2c3a5c" stroke-width="2"/>
+  <text x="470" y="55" font-family="Arial, sans-serif" font-size="11" letter-spacing="2" fill="#b08d57">REGISTROS</text>
+  <g font-family="monospace" font-size="12" fill="#e8e4da">
+    <text x="470" y="80">RAX  0000000000000000</text>
+    <text x="470" y="100">RBX  0000000000000001</text>
+    <text x="470" y="120" fill="#b08d57">RSI  0000000000404000</text>
+    <text x="470" y="140">RDI  000000000062FE10</text>
+    <text x="470" y="160">RSP  000000000062FDF0</text>
+    <text x="470" y="180">RIP  000000000040150B</text>
+  </g>
+  <line x1="0" y1="230" x2="700" y2="230" stroke="#2c3a5c" stroke-width="2"/>
+  <text x="20" y="255" font-family="Arial, sans-serif" font-size="11" letter-spacing="2" fill="#b08d57">MEMORIA</text>
+  <g font-family="monospace" font-size="12" fill="#e8e4da">
+    <text x="20" y="280">00404000  73 33 63 72 33 74 00 00  s3cr3t..</text>
+    <text x="20" y="300">00404008  43 6F 72 72 65 63 74 6F  Correcto</text>
+    <text x="20" y="320">00404010  21 00 00 00 00 00 00 00  !.......</text>
+  </g>
+</svg>

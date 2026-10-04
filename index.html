@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diario RE - Inicio</title>
+        <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <div id="cabecera">
+            <img id="logo" src="images/logo.svg" alt="Logo del Diario RE: una lupa sobre código binario">
+            <h1>Diario RE</h1>
+            <p class="subtitulo">Mi viaje por la ingeniería inversa</p>
+            <p id="menu">
+                <a href="index.html" class="actual">Inicio</a>
+                <a href="diario.html">Diario</a>
+                <a href="herramientas.html">Herramientas</a>
+                <a href="tecnicas.html">Técnicas</a>
+                <a href="contacto.html">Taller</a>
+            </p>
+        </div>
+
+        <div id="contenido">
+            <p class="entradilla">
+                Bienvenido/a a mi cuaderno de bitácora. Aquí documento, semana a semana, cómo estoy aprendiendo a
+                desmontar programas para entender qué hay dentro de ellos.
+            </p>
+
+            <div id="indice">
+                <p class="titulo-indice">Índice</p>
+                <ol>
+                    <li><a href="#que-es">¿Qué es la ingeniería inversa?</a></li>
+                    <li><a href="#aplicaciones">¿Para qué sirve?</a></li>
+                    <li><a href="#por-que">Por qué empecé este diario</a></li>
+                    <li><a href="#ruta">Mi ruta de aprendizaje</a></li>
+                    <li><a href="#ultimas">Últimas entradas</a></li>
+                    <li><a href="#etica">Aspectos legales y éticos</a></li>
+                </ol>
+            </div>
+
+            <h2 id="que-es">¿Qué es la ingeniería inversa?</h2>
+            <p>
+                La <strong>ingeniería inversa</strong> es el proceso de analizar un producto terminado para entender
+                cómo funciona, sin tener acceso a su diseño original ni a su código fuente. En el software, esto
+                suele consistir en tomar un programa compilado y estudiar su <strong>código máquina</strong> para
+                descubrir qué hace y cómo lo hace.
+            </p>
+            <div class="figura">
+                <img src="images/proceso.svg" alt="Diagrama: el código fuente pasa por el compilador y se convierte en un binario; la ingeniería inversa recorre el camino contrario">
+                <p class="pie-foto">La compilación convierte código legible en un binario. La ingeniería inversa intenta recorrer el camino de vuelta.</p>
+            </div>
+            <p>
+                Cuando se compila un programa se pierde mucha información: los nombres de las variables, los
+                comentarios y la estructura original del código. El trabajo del <strong>reverser</strong> consiste
+                en reconstruir esa información a partir de las instrucciones que quedan en el binario.
+            </p>
+
+            <h2 id="aplicaciones">¿Para qué sirve?</h2>
+            <p>Aunque suene a película de hackers, la ingeniería inversa se utiliza a diario en muchos campos:</p>
+            <ul>
+                <li><strong>Análisis de malware</strong>: entender qué hace un virus para poder detenerlo.</li>
+                <li><strong>Búsqueda de vulnerabilidades</strong>: encontrar fallos de seguridad antes que los atacantes.</li>
+                <li><strong>Interoperabilidad</strong>: hacer que un programa se comunique con un formato o protocolo sin documentar.</li>
+                <li><strong>Preservación</strong>: mantener vivo software antiguo cuyo código fuente se ha perdido.</li>
+                <li><strong>Competiciones</strong>: resolver retos en las <a href="https://es.wikipedia.org/wiki/Capturar_la_bandera">competiciones CTF</a>.</li>
+            </ul>
+
+            <h2 id="por-que">Por qué empecé este diario</h2>
+            <p>
+                Todo empezó con un reto de una competición CTF que no supe resolver. Me di cuenta de que no entendía
+                qué pasaba "por debajo" de los programas que usaba todos los días, y decidí ponerle remedio.
+            </p>
+            <p>
+                Cada semana resuelvo pequeños retos ("crackmes") y apunto lo que he aprendido en el
+                <a href="diario.html">diario</a>. Esta web también recoge mis notas sobre las
+                <a href="herramientas.html">herramientas</a> que utilizo y las <a href="tecnicas.html">técnicas</a>
+                que más me han ayudado.
+            </p>
+
+            <h2 id="ruta">Mi ruta de aprendizaje</h2>
+            <ol>
+                <li>Aprender lo básico de C y cómo se compilan los programas.</li>
+                <li>Entender el ensamblador x86-64 y el funcionamiento de la pila.</li>
+                <li>Practicar el análisis estático con un desensamblador.</li>
+                <li>Practicar el análisis dinámico con un depurador.</li>
+                <li>Resolver crackmes y retos de reversing en CTF.</li>
+                <li>Analizar muestras de malware reales en un laboratorio aislado.</li>
+            </ol>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Etapa</th><th>Estado</th><th>Duración aproximada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Lenguaje C</td><td>Completada</td><td>6 semanas</td></tr>
+                    <tr><td>Ensamblador x86-64</td><td>Completada</td><td>8 semanas</td></tr>
+                    <tr><td>Análisis estático</td><td>En curso</td><td>6 semanas</td></tr>
+                    <tr><td>Análisis dinámico</td><td>En curso</td><td>6 semanas</td></tr>
+                    <tr><td>Crackmes y CTF</td><td>Pendiente</td><td>Sin fin</td></tr>
+                    <tr><td>Malware</td><td>Pendiente</td><td>-</td></tr>
+                </tbody>
+            </table>
+
+            <h2 id="ultimas">Últimas entradas</h2>
+            <ul>
+                <li><a href="diario.html#entrada-5">Semana 12: Mi primer crackme resuelto</a></li>
+                <li><a href="diario.html#entrada-4">Semana 10: Peleándome con la pila</a></li>
+                <li><a href="diario.html#entrada-3">Semana 8: Primeros pasos con Ghidra</a></li>
+            </ul>
+
+            <h2 id="etica">Aspectos legales y éticos</h2>
+            <p class="nota">
+                Analiza únicamente software que sea tuyo o que tengas permiso para estudiar. Revisa siempre la
+                licencia del programa y las leyes de tu país antes de aplicar ingeniería inversa.
+            </p>
+        </div>
+
+        <div id="pie">
+            <p>Diario RE &copy; 2026 &middot; Prototipo web para la asignatura IW</p>
+            <p>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                    <img id="logoW3C" src="images/vcss-blue.png" alt="¡CSS Válido!">
+                </a>
+            </p>
+        </div>
+    </body>
+</html>
