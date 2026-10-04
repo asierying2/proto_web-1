@@ -1,1 +1,7 @@
 https://asierying-proto1.netlify.app
+
+Validation: https://validator.w3.org/nu/?doc=https%3A%2F%2Fasierying-proto1.netlify.app%2F
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fasierying-proto1.netlify.app%2Fdiario
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fasierying-proto1.netlify.app%2Fcontacto
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fasierying-proto1.netlify.app%2Fherramientas
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fasierying-proto1.netlify.app%2Ftecnicas
